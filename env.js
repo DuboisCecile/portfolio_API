@@ -12,8 +12,8 @@ function getEnv(variable) {
 const PORT = getEnv(`PORT`);
 const CORS_ALLOWED_ORIGINS = getEnv(`CORS_ALLOWED_ORIGINS`);
 
-const API_KEY = getEnv('SMTP_USER');
-const SECRET_KEY = getEnv('SMTP_PASSWORD');
+const API_KEY = getEnv('API_KEY');
+const SECRET_KEY = getEnv('SECRET_KEY');
 
 module.exports = {
   getEnv,

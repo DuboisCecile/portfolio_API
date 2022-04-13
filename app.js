@@ -9,7 +9,6 @@ const {
   API_KEY,
   SECRET_KEY,
 } = require('./env');
-// const emailer = require('./emailer');
 
 const app = express();
 app.use(express.json());
@@ -31,8 +30,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+/* ********************** mail sending ********************** */
 app.post('/contactmail', (req, res) => {
   const { email, message, userName } = req.body;
+
+  console.log(email, message, userName);
   const mailjet = nodeMailjet.connect(API_KEY, SECRET_KEY);
   const request = mailjet.post('send', { version: 'v3.1' }).request({
     Messages: [
@@ -66,28 +68,6 @@ app.post('/contactmail', (req, res) => {
       console.log(err.statusCode);
       res.sendStatus(500);
     });
-
-  // emailer.sendMail(
-  //   {
-  //     from: email,
-  //     to: 'duboiscecilepro@gmail.com',
-  //     subject: 'Contact Form Submission',
-  //     html: `<p>Name: ${userName}</p>
-  //          <p>Email: ${email}</p>
-  //          <p>Message: ${message}</p>`,
-  //     text: `${userName} ${email} a envoyé le message suivante :${message}`,
-  //     replyTo: email,
-  //   },
-  //   (err, info) => {
-  //     if (err) {
-  //       console.error(err);
-  //       res.sendStatus(500);
-  //     } else {
-  //       console.log(info);
-  //       res.sendStatus(200);
-  //     }
-  //   }
-  // );
 });
 
 /* ********************** server setup ********************** */ app.listen(
