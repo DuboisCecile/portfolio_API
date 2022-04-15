@@ -14,6 +14,8 @@ const CORS_ALLOWED_ORIGINS = getEnv(`CORS_ALLOWED_ORIGINS`);
 
 const API_KEY = getEnv('API_KEY');
 const SECRET_KEY = getEnv('SECRET_KEY');
+const SENDER_EMAIL = getEnv('SENDER_EMAIL');
+const RECEIVER_EMAIL = getEnv('RECEIVER_EMAIL');
 
 module.exports = {
   getEnv,
@@ -21,4 +23,6 @@ module.exports = {
   CORS_ALLOWED_ORIGINS,
   API_KEY,
   SECRET_KEY,
+  SENDER_EMAIL,
+  RECEIVER_EMAIL,
 };
