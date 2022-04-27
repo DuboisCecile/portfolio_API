@@ -109,3 +109,4 @@ dist
 
 file-storage/*
 !file-storage/.gitkeep
+.htaccess_de_PH
